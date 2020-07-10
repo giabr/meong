@@ -3,10 +3,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './Component/Login'
 import Home from './Component/Home'
+import Profile from './Component/Profile'
 
 export default function App() {
   return (
-    <Home />
+    <Profile />
   );
 }
 

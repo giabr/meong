@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Button, FlatList, ScrollView } from 'react-native';
 import Thumbnail from './Thumbnail'
 
 export default class App extends React.Component {
@@ -11,6 +11,7 @@ export default class App extends React.Component {
                 {name: 'Michael',img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2'},
                 {name: 'Jonah',img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2'},
                 {name: 'Deborah',img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2'},            
+                {name: 'Lin',img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2'},            
             ]
         }
     }
@@ -24,6 +25,7 @@ export default class App extends React.Component {
                     <Image source={{uri: 'https://static.tumblr.com/9361c8f5f109caee374b7840e2eb314c/opx8xju/QB3nn8jjq/tumblr_static_9k7sljublkgsw4wcosg4g84wk.jpg'}} style={{width: 50, height: 50, borderRadius: 50/ 2}}/>
                 </View>
                 <View>
+                    <ScrollView>
                     <FlatList 
                         style={styles.list}
                         data={this.state.data}
@@ -31,6 +33,7 @@ export default class App extends React.Component {
                             <Thumbnail data={item} />
                         }
                     />
+                    </ScrollView>
                 </View>
             </View>
           );
