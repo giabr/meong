@@ -4,10 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import Login from './Component/Login'
 import Home from './Component/Home'
 import Profile from './Component/Profile'
+import Index from './Component/index'
 
 export default function App() {
   return (
-    <Profile />
+    <Index />
   );
 }
 

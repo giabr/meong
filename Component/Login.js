@@ -3,22 +3,39 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Button } fr
 
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          userName: '',
+          password: '',
+          isError: false,
+        }
+    }
+
+    loginHandler(){
+        const {navigate} = this.props.navigation
+        navigate('Home', {name: this.state.userName})
+    }
+
     render(){
         return (
             <View style={styles.container}>
                 <View>
-                    <Image source={require('../assets/logo.png')} resizeMode='contain' style={{alignSelf:'center', height: 150, width: 150}}/>
+                    <Image source={require('../assets/logo.png')} resizeMode='contain' style={{alignSelf:'center', height: 80, width: 80}}/>
                     <Text style={styles.title}>meong!</Text>
                     <Text style={styles.secondTitle}>unite your cat togeter -nyan</Text>
                         <TextInput style={styles.textInput}
                         placeholder="username"
+                        onChangeText={userName => this.setState({ userName })}
                         placeholderTextColor="#E5E5E5"/>
                     <TextInput style={styles.textInput}
                         placeholder="password"
+                        onChangeText={password => this.setState({ password })}
+                        secureTextEntry={true}
                         placeholderTextColor="#E5E5E5"/>
                 </View>
                 <View style={{alignItems: 'center', paddingTop: 70}}>
-                    <TouchableOpacity style={styles.buttonMasuk}>
+                    <TouchableOpacity style={styles.buttonMasuk} onPress={()=> this.loginHandler()}>
                         <Text style={{color: 'white', fontSize: 18}}>Login</Text>
                     </TouchableOpacity>
                 </View>

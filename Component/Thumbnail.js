@@ -3,19 +3,19 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Button } fr
 
 
 export default class App extends React.Component {
-    render(){
-        let cat = this.props.data
-        console.log(cat)
-        return (
-            <View style={styles.container}>
-                <Image style={styles.image} source={{uri: cat.img}} />
-                <View style={styles.detail}>
-                    <Text style={styles.detailName}>{cat.name}</Text>
-                    <Text style={styles.detailJarak}>{cat.distance} km</Text>
-                </View>
+  render(){    
+    let cat = this.props.data
+    console.log(cat)
+    return (
+        <View style={styles.container}>
+            <Image style={styles.image} source={{uri: cat.img}} />
+            <View style={styles.detail}>
+                <Text style={styles.detailName}>{cat.name}</Text>
+                <Text style={styles.detailJarak}>{cat.distance} km</Text>
             </View>
-          );
-    }
+        </View>
+      );
+  }
 }
 
 const styles = StyleSheet.create({

@@ -7,14 +7,12 @@ export default class App extends React.Component {
         super(props)
 
         this.state = {
-            data: [
-                {name: 'Michael',bio: 'I want to be a fucboy', img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2', like: ['chicken','female cat', 'female girl'], dislike: ['potato','water']},           
-            ]
+            data: this.props.route.params.data,
         }
     }
 
     render(){
-        let cat = this.state.data[0]
+        let cat = this.state.data
         return (
             <View style={styles.container}>
                 <View style={styles.navBar}>
