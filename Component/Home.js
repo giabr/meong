@@ -2,20 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Button, FlatList, ScrollView } from 'react-native';
 import Thumbnail from './Thumbnail'
 
+import data from './data.json'
+
 export default class App extends React.Component {
     constructor(props){
         super(props)
 
         this.state = {
-            data: [
-                {name: 'Michael',bio: 'I want to be a fucboy', img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2', like: ['chicken','female cat', 'female girl'], dislike: ['potato','water']},           
-                {name: 'Deborah',bio: 'Love myself', img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2', like: ['chicken','female cat', 'female girl'], dislike: ['potato','water']},           
-                {name: 'James',bio: 'Just a nerd guy', img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2', like: ['chicken','female cat', 'female girl'], dislike: ['potato','water']},           
-                {name: 'Sebastian',bio: 'Love traveling', img: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg', distance: '2', like: ['chicken','female cat', 'female girl'], dislike: ['potato','water']},           
-            ],
-            me: 
-                {name: 'Me' ,bio: 'I want to be a fucboy', img: 'https://static.tumblr.com/9361c8f5f109caee374b7840e2eb314c/opx8xju/QB3nn8jjq/tumblr_static_9k7sljublkgsw4wcosg4g84wk.jpg', distance: '2', like: ['female human','female cat', 'tuna'], dislike: ['hamburger','watermelon']},           
-            
+            cat: data,
         }
     }
 
@@ -25,7 +19,7 @@ export default class App extends React.Component {
     }
 
     render(){
-        let me = this.state.me
+        let me = this.state.cat.me
         return (
             <View style={styles.container}>
                 <View style={styles.navBar}>
@@ -39,7 +33,7 @@ export default class App extends React.Component {
                     <ScrollView>
                     <FlatList 
                         style={styles.list}
-                        data={this.state.data}
+                        data={this.state.cat.data}
                         renderItem={({item}) =>
                             <TouchableOpacity onPress={()=> this.pageHandler('Profile',item)}>
                                 <Thumbnail data={item} />
